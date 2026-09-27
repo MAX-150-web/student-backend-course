@@ -55,7 +55,7 @@ npm install --save-dev nodemon
 
 После выполнения команд в проекте были созданы файлы `package.json`, `package-lock.json` и каталог `node_modules`.
 
-![Моё фото](screenshots/f1.jpg)
+![Моё фото](screenshots/f1.png)
 
 ---
 
