@@ -131,6 +131,7 @@ API Gateway
   "connections": 5
 }
 ```
+![Моё фото](screenshots/f6.png)
 
 ---
 
