@@ -1,7 +1,7 @@
 $ curl.exe --include --request GET "http://127.0.0.1:5102/items"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:06:55 GMT
 Content-Type: application/json
 Content-Length: 191
 Connection: close
@@ -11,9 +11,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5102/items/2"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:06:58 GMT
 Content-Type: application/json
 Content-Length: 56
 Connection: close
@@ -23,9 +23,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request POST "http://127.0.0.1:5102/items" --header "Content-Type: application/json" --data-binary "@requests/example-post.json"
-HTTP/1.0 201 CREATED
+HTTP/1.1 201 CREATED
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:00 GMT
 Content-Type: application/json
 Content-Length: 65
 Connection: close
@@ -35,9 +35,9 @@ Connection: close
 PASS: 201
 
 $ curl.exe --include --request PUT "http://127.0.0.1:5102/items/1" --header "Content-Type: application/json" --data-binary "@requests/example-put.json"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:02 GMT
 Content-Type: application/json
 Content-Length: 78
 Connection: close
@@ -47,9 +47,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request DELETE "http://127.0.0.1:5102/items/3"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:04 GMT
 Content-Type: application/json
 Content-Length: 109
 Connection: close
@@ -59,9 +59,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5002/cars"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:06 GMT
 Content-Type: application/json
 Content-Length: 124
 Connection: close
@@ -71,9 +71,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5002/cars/2"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:08 GMT
 Content-Type: application/json
 Content-Length: 36
 Connection: close
@@ -83,9 +83,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request POST "http://127.0.0.1:5002/cars" --header "Content-Type: application/json" --data-binary "@requests/cars-post.json"
-HTTP/1.0 201 CREATED
+HTTP/1.1 201 CREATED
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:11 GMT
 Content-Type: application/json
 Content-Length: 41
 Connection: close
@@ -95,9 +95,9 @@ Connection: close
 PASS: 201
 
 $ curl.exe --include --request PUT "http://127.0.0.1:5002/cars/4" --header "Content-Type: application/json" --data-binary "@requests/cars-put.json"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:13 GMT
 Content-Type: application/json
 Content-Length: 42
 Connection: close
@@ -107,9 +107,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request DELETE "http://127.0.0.1:5002/cars/4"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:15 GMT
 Content-Type: application/json
 Content-Length: 100
 Connection: close
@@ -119,9 +119,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5002/cars/4"
-HTTP/1.0 404 NOT FOUND
+HTTP/1.1 404 NOT FOUND
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:17 GMT
 Content-Type: application/json
 Content-Length: 73
 Connection: close
@@ -131,9 +131,9 @@ Connection: close
 PASS: 404
 
 $ curl.exe --include --request PUT "http://127.0.0.1:5002/cars/999" --header "Content-Type: application/json" --data-binary "@requests/cars-put-404.json"
-HTTP/1.0 404 NOT FOUND
+HTTP/1.1 404 NOT FOUND
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:19 GMT
 Content-Type: application/json
 Content-Length: 73
 Connection: close
@@ -143,9 +143,9 @@ Connection: close
 PASS: 404
 
 $ curl.exe --include --request DELETE "http://127.0.0.1:5002/cars/999"
-HTTP/1.0 404 NOT FOUND
+HTTP/1.1 404 NOT FOUND
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:53 GMT
+Date: Mon, 12 Oct 2026 20:07:21 GMT
 Content-Type: application/json
 Content-Length: 73
 Connection: close

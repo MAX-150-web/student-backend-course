@@ -1,7 +1,7 @@
 $ curl.exe --include --request GET "http://127.0.0.1:5103/cities"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:23 GMT
 Content-Type: application/json
 Content-Length: 506
 Connection: close
@@ -11,9 +11,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5103/cities/1"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:25 GMT
 Content-Type: application/json
 Content-Length: 90
 Connection: close
@@ -23,9 +23,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5103/cities/1/area"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:28 GMT
 Content-Type: application/json
 Content-Length: 52
 Connection: close
@@ -35,9 +35,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5103/countries/%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F/cities"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:30 GMT
 Content-Type: application/json
 Content-Length: 531
 Connection: close
@@ -47,9 +47,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/cars"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:32 GMT
 Content-Type: application/json
 Content-Length: 124
 Connection: close
@@ -59,9 +59,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/cars/1"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:34 GMT
 Content-Type: application/json
 Content-Length: 42
 Connection: close
@@ -71,9 +71,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/cars/1/owners"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:36 GMT
 Content-Type: application/json
 Content-Length: 78
 Connection: close
@@ -83,9 +83,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/brands/Toyota/cars"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:38 GMT
 Content-Type: application/json
 Content-Length: 114
 Connection: close
@@ -95,9 +95,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/cars/abc"
-HTTP/1.0 400 BAD REQUEST
+HTTP/1.1 400 BAD REQUEST
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:40 GMT
 Content-Type: application/json
 Content-Length: 50
 Connection: close
@@ -107,9 +107,9 @@ Connection: close
 PASS: 400
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/cars/abc/owners"
-HTTP/1.0 400 BAD REQUEST
+HTTP/1.1 400 BAD REQUEST
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:43 GMT
 Content-Type: application/json
 Content-Length: 50
 Connection: close
@@ -119,9 +119,9 @@ Connection: close
 PASS: 400
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/cars/999"
-HTTP/1.0 404 NOT FOUND
+HTTP/1.1 404 NOT FOUND
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:45 GMT
 Content-Type: application/json
 Content-Length: 73
 Connection: close
@@ -131,9 +131,9 @@ Connection: close
 PASS: 404
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/cars/999/owners"
-HTTP/1.0 404 NOT FOUND
+HTTP/1.1 404 NOT FOUND
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:47 GMT
 Content-Type: application/json
 Content-Length: 73
 Connection: close
@@ -143,9 +143,9 @@ Connection: close
 PASS: 404
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/cars/3/owners"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:49 GMT
 Content-Type: application/json
 Content-Length: 25
 Connection: close
@@ -155,9 +155,9 @@ Connection: close
 PASS: 200
 
 $ curl.exe --include --request GET "http://127.0.0.1:5003/brands/Honda/cars"
-HTTP/1.0 200 OK
+HTTP/1.1 200 OK
 Server: Werkzeug/3.1.9 Python/3.12.14
-Date: Mon, 12 Oct 2026 19:29:54 GMT
+Date: Mon, 12 Oct 2026 20:07:51 GMT
 Content-Type: application/json
 Content-Length: 28
 Connection: close

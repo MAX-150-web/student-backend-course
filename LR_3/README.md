@@ -39,7 +39,7 @@ python example.py
 
 В папке работы находятся [app.py](app.py), [example.py](example.py), [requirements.txt](requirements.txt),
 этот отчёт, [curl_commands.txt](curl_commands.txt), [command_output.txt](command_output.txt),
-папки `screenshots`, `requests` и `static`. Все материалы работы находятся вместе.
+папки `screenshots` и `static`. Все материалы работы находятся вместе.
 
 ## Выполнение практического примера
 
@@ -112,25 +112,25 @@ if __name__ == "__main__":
 
 Получены пять городов из практического примера.
 
-![GET /cities, HTTP 200](screenshots/example-list.jpg)
+![GET /cities, HTTP 200](screenshots/example-list.png)
 
 ### GET `/cities/1` — 200
 
 Получена Москва с id=1.
 
-![GET /cities/1, HTTP 200](screenshots/example-one.jpg)
+![GET /cities/1, HTTP 200](screenshots/example-one.png)
 
 ### GET `/cities/1/area` — 200
 
 Получена площадь Москвы: 2561 км².
 
-![GET /cities/1/area, HTTP 200](screenshots/example-area.jpg)
+![GET /cities/1/area, HTTP 200](screenshots/example-area.png)
 
 ### GET `/countries/Россия/cities` — 200
 
 Получены города страны Россия.
 
-![GET /countries/Россия/cities, HTTP 200](screenshots/example-country.jpg)
+![GET /countries/Россия/cities, HTTP 200](screenshots/example-country.png)
 
 ## Выполнение индивидуального задания
 
@@ -215,71 +215,71 @@ if __name__ == "__main__":
 
 Получены все три автомобиля.
 
-![GET /cars, HTTP 200](screenshots/cars-list.jpg)
+![GET /cars, HTTP 200](screenshots/cars-list.png)
 
 ### GET `/cars/1` — 200
 
 Получена Toyota Camry с id=1.
 
-![GET /cars/1, HTTP 200](screenshots/cars-one.jpg)
+![GET /cars/1, HTTP 200](screenshots/cars-one.png)
 
 ### GET `/cars/1/owners` — 200
 
 Получены два владельца автомобиля с id=1.
 
-![GET /cars/1/owners, HTTP 200](screenshots/cars-owners.jpg)
+![GET /cars/1/owners, HTTP 200](screenshots/cars-owners.png)
 
 ### GET `/brands/Toyota/cars` — 200
 
 Получены только Toyota: автомобили с id=1 и id=3.
 
-![GET /brands/Toyota/cars, HTTP 200](screenshots/cars-brand.jpg)
+![GET /brands/Toyota/cars, HTTP 200](screenshots/cars-brand.png)
 
 ### GET `/cars/abc` — 400
 
 Нечисловой ID abc возвращает 400.
 
-![GET /cars/abc, HTTP 400](screenshots/cars-400.jpg)
+![GET /cars/abc, HTTP 400](screenshots/cars-400.png)
 
 ### GET `/cars/abc/owners` — 400
 
 Нечисловой ID во вложенном маршруте также возвращает 400.
 
-![GET /cars/abc/owners, HTTP 400](screenshots/owners-400.jpg)
+![GET /cars/abc/owners, HTTP 400](screenshots/owners-400.png)
 
 ### GET `/cars/999` — 404
 
 Автомобиль с id=999 отсутствует: возвращается 404.
 
-![GET /cars/999, HTTP 404](screenshots/cars-404.jpg)
+![GET /cars/999, HTTP 404](screenshots/cars-404.png)
 
 ### GET `/cars/999/owners` — 404
 
 Нельзя получить владельцев отсутствующего автомобиля: возвращается 404.
 
-![GET /cars/999/owners, HTTP 404](screenshots/owners-404.jpg)
+![GET /cars/999/owners, HTTP 404](screenshots/owners-404.png)
 
 ### GET `/cars/3/owners` — 200
 
 Автомобиль существует, но владельцев нет: 200 и пустой список.
 
-![GET /cars/3/owners, HTTP 200](screenshots/empty-owners.jpg)
+![GET /cars/3/owners, HTTP 200](screenshots/empty-owners.png)
 
 ### GET `/brands/Honda/cars` — 200
 
 У марки Honda нет автомобилей в начальном наборе: 200 и пустой список.
 
-![GET /brands/Honda/cars, HTTP 200](screenshots/empty-brand.jpg)
+![GET /brands/Honda/cars, HTTP 200](screenshots/empty-brand.png)
 
 ## Проверки и вывод команд
 
-Выполнено **14 запросов curl, все 14 получили ожидаемые коды**. Дополнительно те же запросы выполнены из браузера и сохранены 14 настоящих скриншотов. Снимки не редактировались. На каждом показаны метод, полный URL и полученный HTTP-ответ.
+Выполнено **14 запросов curl, все 14 получили ожидаемые коды**. Сохранены 14 настоящих снимков окна Microsoft Edge в формате PNG. На каждом видны адресная строка с конкретным URL эндпоинта и JSON-ответ сервера. Снимки сохранены без изменения содержимого. HTTP-коды приведены по настоящему выводу curl.
 
-Для повторения проверки нужно заново запустить оба сервера и выполнять команды из [curl_commands.txt](curl_commands.txt) по порядку. Полный настоящий вывод заголовков и JSON-ответов сохранён в [command_output.txt](command_output.txt). Для POST и PUT тела запросов лежат в папке `requests`; в командах используются файлы JSON, чтобы избежать ошибок с кавычками в PowerShell.
+Для повторения проверки нужно заново запустить оба сервера и выполнять команды из [curl_commands.txt](curl_commands.txt) по порядку. Полный настоящий вывод заголовков и JSON-ответов сохранён в [command_output.txt](command_output.txt).
 
-Браузерный клиент: `http://127.0.0.1:5003/static/check.html` для индивидуального задания и `http://127.0.0.1:5103/static/check.html` для примера. В нём выбрать метод, указать путь и при необходимости JSON, затем нажать «Отправить». Это обычный клиент [static/check.html](static/check.html): он делает реальный `fetch` к Flask-серверу и выводит ответ. GET-маршруты также можно открыть непосредственно по URL.
+Все маршруты этой работы используют GET и открыты непосредственно в адресной строке Edge. Проверены практический пример, индивидуальное задание, ошибки 400/404 и пустые результаты.
 
-Для снимков использован встроенный браузер Codex. Управление Google Chrome остановилось из-за невозможности достоверно определить URL окна; URL самого HTTP-запроса виден в браузерном клиенте.
+Для просмотра GET-ответа достаточно открыть указанный URL в Edge. Адресная строка на снимках принадлежит браузеру; ответ получен от запущенного Flask-сервера.
 
 ### Автоматический перезапуск
 

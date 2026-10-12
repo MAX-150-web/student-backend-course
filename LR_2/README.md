@@ -118,31 +118,31 @@ if __name__ == "__main__":
 
 Получены три начальных товара.
 
-![GET /items, HTTP 200](screenshots/example-list.jpg)
+![GET /items, HTTP 200](screenshots/example-list.png)
 
 ### GET `/items/2` — 200
 
 Получен товар с id=2.
 
-![GET /items/2, HTTP 200](screenshots/example-one.jpg)
+![GET /items/2, HTTP 200](screenshots/example-one.png)
 
 ### POST `/items` — 201
 
-Создан товар с id=4, получен код 201.
+Команда curl создала товар с id=4 и получила 201. На снимке открыт `http://127.0.0.1:5102/items/4`: GET подтверждает сохранение товара.
 
-![POST /items, HTTP 201](screenshots/example-post.jpg)
+![GET /items/4 после POST: новый товар](screenshots/example-post.png)
 
 ### PUT `/items/1` — 200
 
-Изменены название, цена и количество товара с id=1.
+Команда PUT изменила название, цену и количество товара с id=1. На снимке GET `/items/1` показывает обновлённый товар.
 
-![PUT /items/1, HTTP 200](screenshots/example-put.jpg)
+![GET /items/1 после PUT: обновлённый товар](screenshots/example-put.png)
 
 ### DELETE `/items/3` — 200
 
-Удалён товар с id=3; ответ содержит удалённый объект.
+Команда DELETE удалила товар с id=3 и вернула 200 с удалённым объектом. На снимке GET `/items/3` возвращает сообщение об отсутствии товара.
 
-![DELETE /items/3, HTTP 200](screenshots/example-delete.jpg)
+![GET /items/3 после DELETE: товар отсутствует](screenshots/example-delete.png)
 
 ## Выполнение индивидуального задания
 
@@ -229,59 +229,59 @@ if __name__ == "__main__":
 
 Получены все три автомобиля из массива.
 
-![GET /cars, HTTP 200](screenshots/cars-list.jpg)
+![GET /cars, HTTP 200](screenshots/cars-list.png)
 
 ### GET `/cars/2` — 200
 
 Получен BMW X3 с id=2.
 
-![GET /cars/2, HTTP 200](screenshots/cars-one.jpg)
+![GET /cars/2, HTTP 200](screenshots/cars-one.png)
 
 ### POST `/cars` — 201
 
-Создан Honda Civic с id=4. ID назначил сервер.
+Команда POST создала Honda Civic с id=4 и получила 201. ID назначил сервер. На снимке GET `/cars/4` подтверждает сохранение автомобиля.
 
-![POST /cars, HTTP 201](screenshots/cars-post.jpg)
+![GET /cars/4 после POST: Honda Civic](screenshots/cars-post.png)
 
 ### PUT `/cars/4` — 200
 
-Honda Civic заменён на Honda Accord; id=4 сохранился.
+Команда PUT заменила Honda Civic на Honda Accord; id=4 сохранился. На снимке GET `/cars/4` показывает обновлённую модель.
 
-![PUT /cars/4, HTTP 200](screenshots/cars-put.jpg)
+![GET /cars/4 после PUT: Honda Accord](screenshots/cars-put.png)
 
 ### DELETE `/cars/4` — 200
 
-Автомобиль с id=4 удалён; сервер вернул 200 и удалённый объект.
+Команда DELETE удалила автомобиль с id=4 и получила 200 с удалённым объектом. На снимке GET `/cars/4` подтверждает отсутствие автомобиля.
 
-![DELETE /cars/4, HTTP 200](screenshots/cars-delete.jpg)
+![GET /cars/4 после DELETE: автомобиль отсутствует](screenshots/cars-delete.png)
 
 ### GET `/cars/4` — 404
 
 После удаления GET /cars/4 возвращает 404.
 
-![GET /cars/4, HTTP 404](screenshots/cars-404.jpg)
+![GET /cars/4, HTTP 404](screenshots/cars-404.png)
 
 ### PUT `/cars/999` — 404
 
-Обновление отсутствующего автомобиля возвращает 404.
+Команда PUT `/cars/999` получила 404; её ответ сохранён в выводе curl. На снимке GET `/cars/999` показывает отсутствие автомобиля.
 
-![PUT /cars/999, HTTP 404](screenshots/cars-put-404.jpg)
+![GET /cars/999 после проверки PUT: автомобиль отсутствует](screenshots/cars-put-404.png)
 
 ### DELETE `/cars/999` — 404
 
-Удаление отсутствующего автомобиля возвращает 404.
+Команда DELETE `/cars/999` получила 404; её ответ сохранён в выводе curl. На снимке GET `/cars/999` показывает отсутствие автомобиля.
 
-![DELETE /cars/999, HTTP 404](screenshots/cars-delete-404.jpg)
+![GET /cars/999 после проверки DELETE: автомобиль отсутствует](screenshots/cars-delete-404.png)
 
 ## Проверки и вывод команд
 
-Выполнено **13 запросов curl, все 13 получили ожидаемые коды**. Дополнительно те же запросы выполнены из браузера и сохранены 13 настоящих скриншотов. Снимки не редактировались. На каждом показаны метод, полный URL и полученный HTTP-ответ.
+Выполнено **13 запросов curl, все 13 получили ожидаемые коды**. Сохранены 13 настоящих снимков окна Microsoft Edge в формате PNG. На каждом видны адресная строка с конкретным URL эндпоинта и JSON-ответ сервера. Снимки сохранены без изменения содержимого. HTTP-коды приведены по настоящему выводу curl.
 
 Для повторения проверки нужно заново запустить оба сервера и выполнять команды из [curl_commands.txt](curl_commands.txt) по порядку. Полный настоящий вывод заголовков и JSON-ответов сохранён в [command_output.txt](command_output.txt). Для POST и PUT тела запросов лежат в папке `requests`; в командах используются файлы JSON, чтобы избежать ошибок с кавычками в PowerShell.
 
-Браузерный клиент: `http://127.0.0.1:5002/static/check.html` для индивидуального задания и `http://127.0.0.1:5102/static/check.html` для примера. В нём выбрать метод, указать путь и при необходимости JSON, затем нажать «Отправить». Это обычный клиент [static/check.html](static/check.html): он делает реальный `fetch` к Flask-серверу и выводит ответ. GET-маршруты также можно открыть непосредственно по URL.
+POST, PUT и DELETE выполнены через curl. После каждой операции в Edge открыт GET-адрес соответствующего объекта: после POST и PUT он показывает сохранённые данные, после DELETE — отсутствие объекта. Коды 201 и 200 для изменяющих запросов подтверждены в [command_output.txt](command_output.txt). Ошибки PUT и DELETE для id=999 также подтверждены curl; на их снимках показан GET того же отсутствующего объекта. Дополнительный клиент [static/check.html](static/check.html) позволяет вручную отправлять разные HTTP-методы.
 
-Для снимков использован встроенный браузер Codex. Управление Google Chrome остановилось из-за невозможности достоверно определить URL окна; URL самого HTTP-запроса виден в браузерном клиенте.
+Для просмотра GET-ответа достаточно открыть указанный URL в Edge. Адресная строка на снимках принадлежит браузеру; ответ получен от запущенного Flask-сервера.
 
 ## Контрольные вопросы
 
