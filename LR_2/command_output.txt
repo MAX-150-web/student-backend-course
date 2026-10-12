@@ -1,0 +1,157 @@
+$ curl.exe --include --request GET "http://127.0.0.1:5102/items"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 191
+Connection: close
+
+{"count":3,"items":[{"id":1,"name":"Товар 1","price":100,"quantity":5},{"id":2,"name":"Товар 2","price":200,"quantity":3},{"id":3,"name":"Товар 3","price":300,"quantity":10}]}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5102/items/2"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 56
+Connection: close
+
+{"id":2,"name":"Товар 2","price":200,"quantity":3}
+
+PASS: 200
+
+$ curl.exe --include --request POST "http://127.0.0.1:5102/items" --header "Content-Type: application/json" --data-binary "@requests/example-post.json"
+HTTP/1.0 201 CREATED
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 65
+Connection: close
+
+{"id":4,"name":"Новый товар","price":500,"quantity":7}
+
+PASS: 201
+
+$ curl.exe --include --request PUT "http://127.0.0.1:5102/items/1" --header "Content-Type: application/json" --data-binary "@requests/example-put.json"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 78
+Connection: close
+
+{"id":1,"name":"Обновлённый товар","price":150,"quantity":20}
+
+PASS: 200
+
+$ curl.exe --include --request DELETE "http://127.0.0.1:5102/items/3"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 109
+Connection: close
+
+{"deleted":{"id":3,"name":"Товар 3","price":300,"quantity":10},"message":"Элемент удалён"}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5002/cars"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 124
+Connection: close
+
+[{"brand":"Toyota","id":1,"model":"Camry"},{"brand":"BMW","id":2,"model":"X3"},{"brand":"Toyota","id":3,"model":"Corolla"}]
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5002/cars/2"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 36
+Connection: close
+
+{"brand":"BMW","id":2,"model":"X3"}
+
+PASS: 200
+
+$ curl.exe --include --request POST "http://127.0.0.1:5002/cars" --header "Content-Type: application/json" --data-binary "@requests/cars-post.json"
+HTTP/1.0 201 CREATED
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 41
+Connection: close
+
+{"brand":"Honda","id":4,"model":"Civic"}
+
+PASS: 201
+
+$ curl.exe --include --request PUT "http://127.0.0.1:5002/cars/4" --header "Content-Type: application/json" --data-binary "@requests/cars-put.json"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 42
+Connection: close
+
+{"brand":"Honda","id":4,"model":"Accord"}
+
+PASS: 200
+
+$ curl.exe --include --request DELETE "http://127.0.0.1:5002/cars/4"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 100
+Connection: close
+
+{"deleted":{"brand":"Honda","id":4,"model":"Accord"},"message":"Автомобиль удалён"}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5002/cars/4"
+HTTP/1.0 404 NOT FOUND
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 73
+Connection: close
+
+{"error":"Автомобиль или маршрут не найден"}
+
+PASS: 404
+
+$ curl.exe --include --request PUT "http://127.0.0.1:5002/cars/999" --header "Content-Type: application/json" --data-binary "@requests/cars-put-404.json"
+HTTP/1.0 404 NOT FOUND
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 73
+Connection: close
+
+{"error":"Автомобиль или маршрут не найден"}
+
+PASS: 404
+
+$ curl.exe --include --request DELETE "http://127.0.0.1:5002/cars/999"
+HTTP/1.0 404 NOT FOUND
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:53 GMT
+Content-Type: application/json
+Content-Length: 73
+Connection: close
+
+{"error":"Автомобиль или маршрут не найден"}
+
+PASS: 404
+
+PASS: 13/13

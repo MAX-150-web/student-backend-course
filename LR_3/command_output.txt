@@ -1,0 +1,169 @@
+$ curl.exe --include --request GET "http://127.0.0.1:5103/cities"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 506
+Connection: close
+
+{"cities":[{"area":2561,"country":"Россия","id":1,"name":"Москва","population":13000000},{"area":1439,"country":"Россия","id":2,"name":"Санкт-Петербург","population":5600000},{"area":505,"country":"Россия","id":3,"name":"Новосибирск","population":1600000},{"area":1112,"country":"Россия","id":4,"name":"Екатеринбург","population":1500000},{"area":425,"country":"Россия","id":5,"name":"Казань","population":1250000}],"count":5}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5103/cities/1"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 90
+Connection: close
+
+{"area":2561,"country":"Россия","id":1,"name":"Москва","population":13000000}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5103/cities/1/area"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 52
+Connection: close
+
+{"area":2561,"city":"Москва","unit":"км²"}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5103/countries/%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F/cities"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 531
+Connection: close
+
+{"cities":[{"area":2561,"country":"Россия","id":1,"name":"Москва","population":13000000},{"area":1439,"country":"Россия","id":2,"name":"Санкт-Петербург","population":5600000},{"area":505,"country":"Россия","id":3,"name":"Новосибирск","population":1600000},{"area":1112,"country":"Россия","id":4,"name":"Екатеринбург","population":1500000},{"area":425,"country":"Россия","id":5,"name":"Казань","population":1250000}],"count":5,"country":"Россия"}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/cars"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 124
+Connection: close
+
+[{"brand":"Toyota","id":1,"model":"Camry"},{"brand":"BMW","id":2,"model":"X3"},{"brand":"Toyota","id":3,"model":"Corolla"}]
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/cars/1"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 42
+Connection: close
+
+{"brand":"Toyota","id":1,"model":"Camry"}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/cars/1/owners"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 78
+Connection: close
+
+{"car_id":1,"owners":[{"id":1,"name":"Иван"},{"id":2,"name":"Анна"}]}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/brands/Toyota/cars"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 114
+Connection: close
+
+{"brand":"Toyota","cars":[{"brand":"Toyota","id":1,"model":"Camry"},{"brand":"Toyota","id":3,"model":"Corolla"}]}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/cars/abc"
+HTTP/1.0 400 BAD REQUEST
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 50
+Connection: close
+
+{"error":"ID должен быть числом"}
+
+PASS: 400
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/cars/abc/owners"
+HTTP/1.0 400 BAD REQUEST
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 50
+Connection: close
+
+{"error":"ID должен быть числом"}
+
+PASS: 400
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/cars/999"
+HTTP/1.0 404 NOT FOUND
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 73
+Connection: close
+
+{"error":"Автомобиль или маршрут не найден"}
+
+PASS: 404
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/cars/999/owners"
+HTTP/1.0 404 NOT FOUND
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 73
+Connection: close
+
+{"error":"Автомобиль или маршрут не найден"}
+
+PASS: 404
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/cars/3/owners"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 25
+Connection: close
+
+{"car_id":3,"owners":[]}
+
+PASS: 200
+
+$ curl.exe --include --request GET "http://127.0.0.1:5003/brands/Honda/cars"
+HTTP/1.0 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:29:54 GMT
+Content-Type: application/json
+Content-Length: 28
+Connection: close
+
+{"brand":"Honda","cars":[]}
+
+PASS: 200
+
+PASS: 14/14

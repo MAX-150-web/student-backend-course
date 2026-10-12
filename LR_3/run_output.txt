@@ -1,0 +1,38 @@
+$ python -m flask --app app run --port 5003 --debug --no-debugger
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5003
+Press CTRL+C to quit
+ * Restarting with stat
+127.0.0.1 - - [12/Oct/2026 22:33:25] "GET /cars/1 HTTP/1.1" 200 -
+$ curl.exe --include http://127.0.0.1:5003/cars/1
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:33:25 GMT
+Content-Type: application/json
+Content-Length: 55
+Connection: close
+
+{
+  "brand": "Toyota",
+  "id": 1,
+  "model": "Camry"
+}
+ * Detected change in 'C:\\Users\\akkav\\Documents\\Codex\\2026-10-12\\1-2-3-4-5-report\\outputs\\student-backend-course\\LR_3\\app.py', reloading
+ * Restarting with stat
+127.0.0.1 - - [12/Oct/2026 22:33:29] "GET /cars/1 HTTP/1.1" 200 -
+$ curl.exe --include http://127.0.0.1:5003/cars/1
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.12.14
+Date: Mon, 12 Oct 2026 19:33:29 GMT
+Content-Type: application/json
+Content-Length: 55
+Connection: close
+
+{
+  "brand": "Toyota",
+  "id": 1,
+  "model": "Camry"
+}
+PASS: автоматический перезапуск и HTTP 200 после него

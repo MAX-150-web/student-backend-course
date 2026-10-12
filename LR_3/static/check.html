@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<title>Проверка Flask API</title>
+<style>
+body { max-width: 900px; margin: 30px auto; font: 18px Arial; color: #182c46; }
+input, select, textarea, button { font: inherit; padding: 8px; margin: 5px 0; }
+input, textarea { width: 100%; box-sizing: border-box; }
+pre { background: #f1f4f8; padding: 15px; white-space: pre-wrap; overflow-wrap: anywhere; }
+label { display: block; }
+</style>
+<h1>Проверка Python + Flask</h1>
+<p>Коровин Максим Александрович · ПИЖ-б-о-25-1 · Вариант 10 · Базовый уровень</p>
+<label>Метод <select id="method"><option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select></label>
+<label>Путь <input id="path" value="/cars"></label>
+<label>JSON <textarea id="json" rows="3"></textarea></label>
+<button id="send">Отправить</button>
+<h2>Запрос</h2><pre id="request"></pre>
+<h2 id="status">Ответ ещё не получен</h2>
+<pre id="response"></pre>
+<script>
+const method = document.getElementById('method');
+const path = document.getElementById('path');
+const body = document.getElementById('json');
+function showRequest() {
+  document.getElementById('request').textContent = method.value + ' ' + location.origin + path.value + (body.value ? '\nContent-Type: application/json\n' + body.value : '');
+}
+for (const input of [method, path, body]) input.addEventListener('input', showRequest);
+showRequest();
+document.getElementById('send').onclick = async function () {
+  this.disabled = true;
+  document.getElementById('status').textContent = 'Отправка...';
+  try {
+    const options = {method: method.value};
+    if (body.value) { options.headers = {'Content-Type': 'application/json'}; options.body = body.value; }
+    const result = await fetch(path.value, options);
+    const text = await result.text();
+    document.getElementById('status').textContent = 'HTTP ' + result.status + ' ' + result.statusText;
+    document.getElementById('response').textContent = JSON.stringify(JSON.parse(text), null, 2);
+  } catch (error) { document.getElementById('status').textContent = error.message; }
+  this.disabled = false;
+};
+</script>
+</html>
