@@ -1,0 +1,394 @@
+Actual curl responses; UTC 2026-10-12T18:43:38.866Z
+Node v24.19.0
+Server listening at http://127.0.0.1:3000
+Server listening at http://127.0.0.1:3001
+
+=== example-list: Практический пример: список ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3001/items"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 190
+ETag: W/"be-55mgxWl3lTRO399KgIoRRPexD2c"
+Date: Mon, 12 Oct 2026 18:43:38 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"count":3,"items":[{"id":1,"name":"Товар 1","price":100,"quantity":5},{"id":2,"name":"Товар 2","price":200,"quantity":3},{"id":3,"name":"Товар 3","price":300,"quantity":10}]}
+
+PASS: HTTP 200
+
+=== example-one: Практический пример: один товар ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3001/items/2"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 55
+ETag: W/"37-U65fKK/PqdFAbDKDPR7n+JrMAFI"
+Date: Mon, 12 Oct 2026 18:43:38 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"id":2,"name":"Товар 2","price":200,"quantity":3}
+
+PASS: HTTP 200
+
+=== example-create: Практический пример: создание ===
+$ curl.exe --silent --show-error --include --max-time 10 --request POST "http://127.0.0.1:3001/items" --header "Content-Type: application/json" --data-binary "@checks/example-create-request.json"
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 64
+ETag: W/"40-6TKFX80z8Bdex9tkGbxmwkqvoCQ"
+Date: Mon, 12 Oct 2026 18:43:38 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"id":4,"name":"Новый товар","price":500,"quantity":7}
+
+PASS: HTTP 201
+
+=== example-update: Практический пример: обновление ===
+$ curl.exe --silent --show-error --include --max-time 10 --request PUT "http://127.0.0.1:3001/items/1" --header "Content-Type: application/json" --data-binary "@checks/example-update-request.json"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 77
+ETag: W/"4d-saAlrc8iqXRYWzGRe2qOXc0f22M"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"id":1,"name":"Обновлённый товар","price":150,"quantity":20}
+
+PASS: HTTP 200
+
+=== example-delete: Практический пример: удаление ===
+$ curl.exe --silent --show-error --include --max-time 10 --request DELETE "http://127.0.0.1:3001/items/3"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 108
+ETag: W/"6c-rregEsGvGXP7NEpe+RosysrsAGI"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"message":"Элемент удалён","deleted":{"id":3,"name":"Товар 3","price":300,"quantity":10}}
+
+PASS: HTTP 200
+
+=== cars-list: Автомобили: список ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 400
+ETag: W/"190-dWscR+IYOsJOwQEukG3K3ZRmt4Q"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"total":5,"count":5,"page":1,"limit":10,"pages":1,"items":[{"id":1,"brand":"Toyota","model":"Camry","year":2020,"price":2400000},{"id":2,"brand":"BMW","model":"X3","year":2022,"price":4500000},{"id":3,"brand":"Toyota","model":"Corolla","year":2018,"price":1600000},{"id":4,"brand":"Lada","model":"Vesta","year":2023,"price":1400000},{"id":5,"brand":"Kia","model":"Rio","year":2021,"price":1800000}]}
+
+PASS: HTTP 200
+
+=== cars-one: Автомобили: один автомобиль ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars/2"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 63
+ETag: W/"3f-yV7UxidYCYorEw+dLT9AUABmzMU"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"id":2,"brand":"BMW","model":"X3","year":2022,"price":4500000}
+
+PASS: HTTP 200
+
+=== cars-create: Автомобили: создание ===
+$ curl.exe --silent --show-error --include --max-time 10 --request POST "http://127.0.0.1:3000/cars" --header "Content-Type: application/json" --data-binary "@checks/cars-create-request.json"
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Location: /cars/6
+Content-Type: application/json; charset=utf-8
+Content-Length: 68
+ETag: W/"44-4BpJ1smSOFBhjVPz3b5jbWe1d7E"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"id":6,"brand":"Honda","model":"Civic","year":2024,"price":2600000}
+
+PASS: HTTP 201
+
+=== cars-created: Автомобили: чтение созданного ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars/6"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 68
+ETag: W/"44-4BpJ1smSOFBhjVPz3b5jbWe1d7E"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"id":6,"brand":"Honda","model":"Civic","year":2024,"price":2600000}
+
+PASS: HTTP 200
+
+=== cars-update: Автомобили: полная замена ===
+$ curl.exe --silent --show-error --include --max-time 10 --request PUT "http://127.0.0.1:3000/cars/6" --header "Content-Type: application/json" --data-binary "@checks/cars-update-request.json"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 69
+ETag: W/"45-L9pT5tZJOizUR3LV5V2fU+HBBmw"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"id":6,"brand":"Honda","model":"Accord","year":2025,"price":3100000}
+
+PASS: HTTP 200
+
+=== cars-search: Автомобили: поиск по марке ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars?search=tOyOtA"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 203
+ETag: W/"cb-PLbiWK5dHngUKw0UsPbdhJav65I"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"total":2,"count":2,"page":1,"limit":10,"pages":1,"items":[{"id":1,"brand":"Toyota","model":"Camry","year":2020,"price":2400000},{"id":3,"brand":"Toyota","model":"Corolla","year":2018,"price":1600000}]}
+
+PASS: HTTP 200
+
+=== cars-sort-asc: Автомобили: цена по возрастанию ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars?sort=price&order=asc"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 470
+ETag: W/"1d6-PN3BG+j9XYjn+nEVfZnI9AyjjGQ"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"total":6,"count":6,"page":1,"limit":10,"pages":1,"items":[{"id":4,"brand":"Lada","model":"Vesta","year":2023,"price":1400000},{"id":3,"brand":"Toyota","model":"Corolla","year":2018,"price":1600000},{"id":5,"brand":"Kia","model":"Rio","year":2021,"price":1800000},{"id":1,"brand":"Toyota","model":"Camry","year":2020,"price":2400000},{"id":6,"brand":"Honda","model":"Accord","year":2025,"price":3100000},{"id":2,"brand":"BMW","model":"X3","year":2022,"price":4500000}]}
+
+PASS: HTTP 200
+
+=== cars-sort-desc: Автомобили: цена по убыванию ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars?sort=price&order=desc"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 470
+ETag: W/"1d6-/ypQZGtzx3B5OgF6Sdy2oF3HDwY"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"total":6,"count":6,"page":1,"limit":10,"pages":1,"items":[{"id":2,"brand":"BMW","model":"X3","year":2022,"price":4500000},{"id":6,"brand":"Honda","model":"Accord","year":2025,"price":3100000},{"id":1,"brand":"Toyota","model":"Camry","year":2020,"price":2400000},{"id":5,"brand":"Kia","model":"Rio","year":2021,"price":1800000},{"id":3,"brand":"Toyota","model":"Corolla","year":2018,"price":1600000},{"id":4,"brand":"Lada","model":"Vesta","year":2023,"price":1400000}]}
+
+PASS: HTTP 200
+
+=== cars-page: Автомобили: страница 2 ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars?page=2&limit=2"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 200
+ETag: W/"c8-p7SE/da/kX8aZrh9Q65EkPxVMZw"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"total":6,"count":2,"page":2,"limit":2,"pages":3,"items":[{"id":3,"brand":"Toyota","model":"Corolla","year":2018,"price":1600000},{"id":4,"brand":"Lada","model":"Vesta","year":2023,"price":1400000}]}
+
+PASS: HTTP 200
+
+=== cars-combined: Автомобили: поиск + сортировка + страница ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars?search=toyota&sort=price&order=desc&page=1&limit=1"
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 130
+ETag: W/"82-0VKYuwHH+TT0O7LkK0VuTYKhZ+Y"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"total":2,"count":1,"page":1,"limit":1,"pages":2,"items":[{"id":1,"brand":"Toyota","model":"Camry","year":2020,"price":2400000}]}
+
+PASS: HTTP 200
+
+=== cars-missing: Ошибка: отсутствуют обязательные поля ===
+$ curl.exe --silent --show-error --include --max-time 10 --request POST "http://127.0.0.1:3000/cars" --header "Content-Type: application/json" --data-binary "@checks/cars-missing-request.json"
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 174
+ETag: W/"ae-3Fz+7FmyMJy6jYVJeYQtUVKZDDs"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Ошибка валидации","details":["Поле model обязательно","Поле year обязательно","Поле price обязательно"]}
+
+PASS: HTTP 400
+
+=== cars-type: Ошибка: price передан строкой ===
+$ curl.exe --silent --show-error --include --max-time 10 --request POST "http://127.0.0.1:3000/cars" --header "Content-Type: application/json" --data-binary "@checks/cars-type-request.json"
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 123
+ETag: W/"7b-H4yJ1FqDACzpFTZ7bfDKm2YM9M0"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Ошибка валидации","details":["price: конечное неотрицательное число"]}
+
+PASS: HTTP 400
+
+=== cars-values: Ошибка: недопустимые значения ===
+$ curl.exe --silent --show-error --include --max-time 10 --request POST "http://127.0.0.1:3000/cars" --header "Content-Type: application/json" --data-binary "@checks/cars-values-request.json"
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 251
+ETag: W/"fb-gH+NUMqYr945+3MWOgk4MxqkJcw"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Ошибка валидации","details":["brand: непустая строка длиной до 100 символов","year: целое число от 1886 до 2027","price: конечное неотрицательное число"]}
+
+PASS: HTTP 400
+
+=== cars-put-missing: Ошибка: PUT требует все поля ===
+$ curl.exe --silent --show-error --include --max-time 10 --request PUT "http://127.0.0.1:3000/cars/6" --header "Content-Type: application/json" --data-binary "@checks/cars-put-missing-request.json"
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 174
+ETag: W/"ae-czB4n8MuvmKiPk22v/aLglmSpQM"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Ошибка валидации","details":["Поле brand обязательно","Поле model обязательно","Поле year обязательно"]}
+
+PASS: HTTP 400
+
+=== cars-query: Ошибка: неверные query-параметры ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars?page=0&limit=2"
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 89
+ETag: W/"59-NFWfOjOLzkKyLV78SLWhdTsiBFk"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"page должен быть положительным целым числом"}
+
+PASS: HTTP 400
+
+=== cars-not-found: Ошибка: автомобиль не найден ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars/999"
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 50
+ETag: W/"32-JXSETrt1Qd/7wyXoj1pJnpGbD/U"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Автомобиль не найден"}
+
+PASS: HTTP 404
+
+=== cars-put-not-found: Ошибка: обновление отсутствующего ===
+$ curl.exe --silent --show-error --include --max-time 10 --request PUT "http://127.0.0.1:3000/cars/999" --header "Content-Type: application/json" --data-binary "@checks/cars-put-not-found-request.json"
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 50
+ETag: W/"32-JXSETrt1Qd/7wyXoj1pJnpGbD/U"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Автомобиль не найден"}
+
+PASS: HTTP 404
+
+=== cars-route: Ошибка: маршрут не найден ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/unknown"
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 44
+ETag: W/"2c-8uCxO3hPaIhoymZaAbu5LXYuuF8"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Маршрут не найден"}
+
+PASS: HTTP 404
+
+=== cars-delete: Автомобили: удаление без тела ответа ===
+$ curl.exe --silent --show-error --include --max-time 10 --request DELETE "http://127.0.0.1:3000/cars/6"
+HTTP/1.1 204 No Content
+X-Powered-By: Express
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+
+PASS: HTTP 204
+
+=== cars-after-delete: Проверка: удалённый автомобиль не найден ===
+$ curl.exe --silent --show-error --include --max-time 10 --request GET "http://127.0.0.1:3000/cars/6"
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 50
+ETag: W/"32-JXSETrt1Qd/7wyXoj1pJnpGbD/U"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Автомобиль не найден"}
+
+PASS: HTTP 404
+
+=== cars-delete-repeat: Проверка: повторное удаление ===
+$ curl.exe --silent --show-error --include --max-time 10 --request DELETE "http://127.0.0.1:3000/cars/6"
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 50
+ETag: W/"32-JXSETrt1Qd/7wyXoj1pJnpGbD/U"
+Date: Mon, 12 Oct 2026 18:43:39 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Автомобиль не найден"}
+
+PASS: HTTP 404
+
+PASS: 26/26 curl checks

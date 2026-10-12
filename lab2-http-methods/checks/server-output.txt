@@ -1,0 +1,3 @@
+Cars API: http://127.0.0.1:3000/cars
+Example API: http://127.0.0.1:3001/items
+Browser checks: http://127.0.0.1:3100

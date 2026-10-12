@@ -1,0 +1,132 @@
+[
+  {
+    "key": "example-list",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 190\r\nETag: W/\"be-55mgxWl3lTRO399KgIoRRPexD2c\"\r\nDate: Mon, 12 Oct 2026 18:43:38 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"count\":3,\"items\":[{\"id\":1,\"name\":\"Товар 1\",\"price\":100,\"quantity\":5},{\"id\":2,\"name\":\"Товар 2\",\"price\":200,\"quantity\":3},{\"id\":3,\"name\":\"Товар 3\",\"price\":300,\"quantity\":10}]}"
+  },
+  {
+    "key": "example-one",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 55\r\nETag: W/\"37-U65fKK/PqdFAbDKDPR7n+JrMAFI\"\r\nDate: Mon, 12 Oct 2026 18:43:38 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"id\":2,\"name\":\"Товар 2\",\"price\":200,\"quantity\":3}"
+  },
+  {
+    "key": "example-create",
+    "status": 201,
+    "raw": "HTTP/1.1 201 Created\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 64\r\nETag: W/\"40-6TKFX80z8Bdex9tkGbxmwkqvoCQ\"\r\nDate: Mon, 12 Oct 2026 18:43:38 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"id\":4,\"name\":\"Новый товар\",\"price\":500,\"quantity\":7}"
+  },
+  {
+    "key": "example-update",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 77\r\nETag: W/\"4d-saAlrc8iqXRYWzGRe2qOXc0f22M\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"id\":1,\"name\":\"Обновлённый товар\",\"price\":150,\"quantity\":20}"
+  },
+  {
+    "key": "example-delete",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 108\r\nETag: W/\"6c-rregEsGvGXP7NEpe+RosysrsAGI\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"message\":\"Элемент удалён\",\"deleted\":{\"id\":3,\"name\":\"Товар 3\",\"price\":300,\"quantity\":10}}"
+  },
+  {
+    "key": "cars-list",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 400\r\nETag: W/\"190-dWscR+IYOsJOwQEukG3K3ZRmt4Q\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"total\":5,\"count\":5,\"page\":1,\"limit\":10,\"pages\":1,\"items\":[{\"id\":1,\"brand\":\"Toyota\",\"model\":\"Camry\",\"year\":2020,\"price\":2400000},{\"id\":2,\"brand\":\"BMW\",\"model\":\"X3\",\"year\":2022,\"price\":4500000},{\"id\":3,\"brand\":\"Toyota\",\"model\":\"Corolla\",\"year\":2018,\"price\":1600000},{\"id\":4,\"brand\":\"Lada\",\"model\":\"Vesta\",\"year\":2023,\"price\":1400000},{\"id\":5,\"brand\":\"Kia\",\"model\":\"Rio\",\"year\":2021,\"price\":1800000}]}"
+  },
+  {
+    "key": "cars-one",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 63\r\nETag: W/\"3f-yV7UxidYCYorEw+dLT9AUABmzMU\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"id\":2,\"brand\":\"BMW\",\"model\":\"X3\",\"year\":2022,\"price\":4500000}"
+  },
+  {
+    "key": "cars-create",
+    "status": 201,
+    "raw": "HTTP/1.1 201 Created\r\nX-Powered-By: Express\r\nLocation: /cars/6\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 68\r\nETag: W/\"44-4BpJ1smSOFBhjVPz3b5jbWe1d7E\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"id\":6,\"brand\":\"Honda\",\"model\":\"Civic\",\"year\":2024,\"price\":2600000}"
+  },
+  {
+    "key": "cars-created",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 68\r\nETag: W/\"44-4BpJ1smSOFBhjVPz3b5jbWe1d7E\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"id\":6,\"brand\":\"Honda\",\"model\":\"Civic\",\"year\":2024,\"price\":2600000}"
+  },
+  {
+    "key": "cars-update",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 69\r\nETag: W/\"45-L9pT5tZJOizUR3LV5V2fU+HBBmw\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"id\":6,\"brand\":\"Honda\",\"model\":\"Accord\",\"year\":2025,\"price\":3100000}"
+  },
+  {
+    "key": "cars-search",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 203\r\nETag: W/\"cb-PLbiWK5dHngUKw0UsPbdhJav65I\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"total\":2,\"count\":2,\"page\":1,\"limit\":10,\"pages\":1,\"items\":[{\"id\":1,\"brand\":\"Toyota\",\"model\":\"Camry\",\"year\":2020,\"price\":2400000},{\"id\":3,\"brand\":\"Toyota\",\"model\":\"Corolla\",\"year\":2018,\"price\":1600000}]}"
+  },
+  {
+    "key": "cars-sort-asc",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 470\r\nETag: W/\"1d6-PN3BG+j9XYjn+nEVfZnI9AyjjGQ\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"total\":6,\"count\":6,\"page\":1,\"limit\":10,\"pages\":1,\"items\":[{\"id\":4,\"brand\":\"Lada\",\"model\":\"Vesta\",\"year\":2023,\"price\":1400000},{\"id\":3,\"brand\":\"Toyota\",\"model\":\"Corolla\",\"year\":2018,\"price\":1600000},{\"id\":5,\"brand\":\"Kia\",\"model\":\"Rio\",\"year\":2021,\"price\":1800000},{\"id\":1,\"brand\":\"Toyota\",\"model\":\"Camry\",\"year\":2020,\"price\":2400000},{\"id\":6,\"brand\":\"Honda\",\"model\":\"Accord\",\"year\":2025,\"price\":3100000},{\"id\":2,\"brand\":\"BMW\",\"model\":\"X3\",\"year\":2022,\"price\":4500000}]}"
+  },
+  {
+    "key": "cars-sort-desc",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 470\r\nETag: W/\"1d6-/ypQZGtzx3B5OgF6Sdy2oF3HDwY\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"total\":6,\"count\":6,\"page\":1,\"limit\":10,\"pages\":1,\"items\":[{\"id\":2,\"brand\":\"BMW\",\"model\":\"X3\",\"year\":2022,\"price\":4500000},{\"id\":6,\"brand\":\"Honda\",\"model\":\"Accord\",\"year\":2025,\"price\":3100000},{\"id\":1,\"brand\":\"Toyota\",\"model\":\"Camry\",\"year\":2020,\"price\":2400000},{\"id\":5,\"brand\":\"Kia\",\"model\":\"Rio\",\"year\":2021,\"price\":1800000},{\"id\":3,\"brand\":\"Toyota\",\"model\":\"Corolla\",\"year\":2018,\"price\":1600000},{\"id\":4,\"brand\":\"Lada\",\"model\":\"Vesta\",\"year\":2023,\"price\":1400000}]}"
+  },
+  {
+    "key": "cars-page",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 200\r\nETag: W/\"c8-p7SE/da/kX8aZrh9Q65EkPxVMZw\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"total\":6,\"count\":2,\"page\":2,\"limit\":2,\"pages\":3,\"items\":[{\"id\":3,\"brand\":\"Toyota\",\"model\":\"Corolla\",\"year\":2018,\"price\":1600000},{\"id\":4,\"brand\":\"Lada\",\"model\":\"Vesta\",\"year\":2023,\"price\":1400000}]}"
+  },
+  {
+    "key": "cars-combined",
+    "status": 200,
+    "raw": "HTTP/1.1 200 OK\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 130\r\nETag: W/\"82-0VKYuwHH+TT0O7LkK0VuTYKhZ+Y\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"total\":2,\"count\":1,\"page\":1,\"limit\":1,\"pages\":2,\"items\":[{\"id\":1,\"brand\":\"Toyota\",\"model\":\"Camry\",\"year\":2020,\"price\":2400000}]}"
+  },
+  {
+    "key": "cars-missing",
+    "status": 400,
+    "raw": "HTTP/1.1 400 Bad Request\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 174\r\nETag: W/\"ae-3Fz+7FmyMJy6jYVJeYQtUVKZDDs\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Ошибка валидации\",\"details\":[\"Поле model обязательно\",\"Поле year обязательно\",\"Поле price обязательно\"]}"
+  },
+  {
+    "key": "cars-type",
+    "status": 400,
+    "raw": "HTTP/1.1 400 Bad Request\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 123\r\nETag: W/\"7b-H4yJ1FqDACzpFTZ7bfDKm2YM9M0\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Ошибка валидации\",\"details\":[\"price: конечное неотрицательное число\"]}"
+  },
+  {
+    "key": "cars-values",
+    "status": 400,
+    "raw": "HTTP/1.1 400 Bad Request\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 251\r\nETag: W/\"fb-gH+NUMqYr945+3MWOgk4MxqkJcw\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Ошибка валидации\",\"details\":[\"brand: непустая строка длиной до 100 символов\",\"year: целое число от 1886 до 2027\",\"price: конечное неотрицательное число\"]}"
+  },
+  {
+    "key": "cars-put-missing",
+    "status": 400,
+    "raw": "HTTP/1.1 400 Bad Request\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 174\r\nETag: W/\"ae-czB4n8MuvmKiPk22v/aLglmSpQM\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Ошибка валидации\",\"details\":[\"Поле brand обязательно\",\"Поле model обязательно\",\"Поле year обязательно\"]}"
+  },
+  {
+    "key": "cars-query",
+    "status": 400,
+    "raw": "HTTP/1.1 400 Bad Request\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 89\r\nETag: W/\"59-NFWfOjOLzkKyLV78SLWhdTsiBFk\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"page должен быть положительным целым числом\"}"
+  },
+  {
+    "key": "cars-not-found",
+    "status": 404,
+    "raw": "HTTP/1.1 404 Not Found\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 50\r\nETag: W/\"32-JXSETrt1Qd/7wyXoj1pJnpGbD/U\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Автомобиль не найден\"}"
+  },
+  {
+    "key": "cars-put-not-found",
+    "status": 404,
+    "raw": "HTTP/1.1 404 Not Found\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 50\r\nETag: W/\"32-JXSETrt1Qd/7wyXoj1pJnpGbD/U\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Автомобиль не найден\"}"
+  },
+  {
+    "key": "cars-route",
+    "status": 404,
+    "raw": "HTTP/1.1 404 Not Found\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 44\r\nETag: W/\"2c-8uCxO3hPaIhoymZaAbu5LXYuuF8\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Маршрут не найден\"}"
+  },
+  {
+    "key": "cars-delete",
+    "status": 204,
+    "raw": "HTTP/1.1 204 No Content\r\nX-Powered-By: Express\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n"
+  },
+  {
+    "key": "cars-after-delete",
+    "status": 404,
+    "raw": "HTTP/1.1 404 Not Found\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 50\r\nETag: W/\"32-JXSETrt1Qd/7wyXoj1pJnpGbD/U\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Автомобиль не найден\"}"
+  },
+  {
+    "key": "cars-delete-repeat",
+    "status": 404,
+    "raw": "HTTP/1.1 404 Not Found\r\nX-Powered-By: Express\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 50\r\nETag: W/\"32-JXSETrt1Qd/7wyXoj1pJnpGbD/U\"\r\nDate: Mon, 12 Oct 2026 18:43:39 GMT\r\nConnection: keep-alive\r\nKeep-Alive: timeout=5\r\n\r\n{\"error\":\"Автомобиль не найден\"}"
+  }
+]

@@ -1,0 +1,3 @@
+/README.md text eol=lf
+/lab2-http-methods/** text=auto eol=lf
+*.jpg binary
