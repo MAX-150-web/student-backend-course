@@ -1,0 +1,15 @@
+cd LR_4
+python -X utf8 example.py
+python -X utf8 db.py
+python -X utf8 check.py
+python -X utf8 -m http.server 5004 --bind 127.0.0.1
+
+http://127.0.0.1:5004/command_output.txt
+http://127.0.0.1:5004/example_output.txt
+http://127.0.0.1:5004/results/create-table.txt
+http://127.0.0.1:5004/results/insert.txt
+http://127.0.0.1:5004/results/select-all.txt
+http://127.0.0.1:5004/results/select-where.txt
+http://127.0.0.1:5004/results/update.txt
+http://127.0.0.1:5004/results/delete.txt
+http://127.0.0.1:5004/checks.txt

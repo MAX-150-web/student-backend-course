@@ -1,0 +1,7 @@
+﻿3. SELECT: все автомобили
+SELECT * FROM cars
+(1, 'Toyota', 'Camry', 2018)
+(2, 'BMW', 'X3', 2020)
+(3, 'Toyota', 'Corolla', 2019)
+(4, 'Audi', 'A4', 2017)
+(5, 'Kia', 'Rio', 2021)

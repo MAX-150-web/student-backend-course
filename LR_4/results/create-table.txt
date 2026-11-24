@@ -1,0 +1,15 @@
+﻿1. CREATE TABLE: таблица автомобилей
+DROP TABLE IF EXISTS cars;
+
+
+CREATE TABLE cars (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    brand TEXT NOT NULL,
+    model TEXT NOT NULL,
+    year INTEGER NOT NULL
+);
+PRAGMA table_info(cars)
+(0, 'id', 'INTEGER', 0, None, 1)
+(1, 'brand', 'TEXT', 1, None, 0)
+(2, 'model', 'TEXT', 1, None, 0)
+(3, 'year', 'INTEGER', 1, None, 0)

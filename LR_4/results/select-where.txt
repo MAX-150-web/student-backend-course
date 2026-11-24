@@ -1,0 +1,4 @@
+﻿4. WHERE: автомобили Toyota
+SELECT * FROM cars WHERE brand = 'Toyota'
+(1, 'Toyota', 'Camry', 2018)
+(3, 'Toyota', 'Corolla', 2019)

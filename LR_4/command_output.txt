@@ -1,0 +1,54 @@
+﻿1. CREATE TABLE: таблица автомобилей
+DROP TABLE IF EXISTS cars;
+
+
+CREATE TABLE cars (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    brand TEXT NOT NULL,
+    model TEXT NOT NULL,
+    year INTEGER NOT NULL
+);
+PRAGMA table_info(cars)
+(0, 'id', 'INTEGER', 0, None, 1)
+(1, 'brand', 'TEXT', 1, None, 0)
+(2, 'model', 'TEXT', 1, None, 0)
+(3, 'year', 'INTEGER', 1, None, 0)
+
+2. INSERT: пять автомобилей
+BEGIN
+INSERT INTO cars (brand, model, year) VALUES ('Toyota', 'Camry', 2018)
+INSERT INTO cars (brand, model, year) VALUES ('BMW', 'X3', 2020)
+INSERT INTO cars (brand, model, year) VALUES ('Toyota', 'Corolla', 2019)
+INSERT INTO cars (brand, model, year) VALUES ('Audi', 'A4', 2017)
+INSERT INTO cars (brand, model, year) VALUES ('Kia', 'Rio', 2021)
+Добавлено записей: 5
+
+3. SELECT: все автомобили
+SELECT * FROM cars
+(1, 'Toyota', 'Camry', 2018)
+(2, 'BMW', 'X3', 2020)
+(3, 'Toyota', 'Corolla', 2019)
+(4, 'Audi', 'A4', 2017)
+(5, 'Kia', 'Rio', 2021)
+
+4. WHERE: автомобили Toyota
+SELECT * FROM cars WHERE brand = 'Toyota'
+(1, 'Toyota', 'Camry', 2018)
+(3, 'Toyota', 'Corolla', 2019)
+
+5. UPDATE: новый год выпуска для id=2
+UPDATE cars SET year = 2022 WHERE id = 2
+Обновлено записей: 1
+SELECT * FROM cars WHERE id = 2
+(2, 'BMW', 'X3', 2022)
+
+6. DELETE: удаление автомобиля id=5
+DELETE FROM cars WHERE id = 5
+Удалено записей: 1
+SELECT * FROM cars
+(1, 'Toyota', 'Camry', 2018)
+(2, 'BMW', 'X3', 2022)
+(3, 'Toyota', 'Corolla', 2019)
+(4, 'Audi', 'A4', 2017)
+COMMIT
+Изменения сохранены в lab4.db

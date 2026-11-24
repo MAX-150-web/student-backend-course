@@ -1,0 +1,8 @@
+﻿2. INSERT: пять автомобилей
+BEGIN
+INSERT INTO cars (brand, model, year) VALUES ('Toyota', 'Camry', 2018)
+INSERT INTO cars (brand, model, year) VALUES ('BMW', 'X3', 2020)
+INSERT INTO cars (brand, model, year) VALUES ('Toyota', 'Corolla', 2019)
+INSERT INTO cars (brand, model, year) VALUES ('Audi', 'A4', 2017)
+INSERT INTO cars (brand, model, year) VALUES ('Kia', 'Rio', 2021)
+Добавлено записей: 5

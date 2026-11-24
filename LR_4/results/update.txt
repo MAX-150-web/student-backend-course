@@ -1,0 +1,5 @@
+﻿5. UPDATE: новый год выпуска для id=2
+UPDATE cars SET year = 2022 WHERE id = 2
+Обновлено записей: 1
+SELECT * FROM cars WHERE id = 2
+(2, 'BMW', 'X3', 2022)

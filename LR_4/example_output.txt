@@ -1,0 +1,55 @@
+﻿1. CREATE TABLE: таблица городов
+
+DROP TABLE IF EXISTS cities;
+
+CREATE TABLE cities (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    population INTEGER,
+    country TEXT DEFAULT 'Россия',
+    area REAL
+);
+
+2. INSERT: шесть городов
+BEGIN
+INSERT INTO cities (name, population, country, area) VALUES ('Москва', 13000000, 'Россия', 2561)
+INSERT INTO cities (name, population, country, area) VALUES ('Санкт-Петербург', 5600000, 'Россия', 1439)
+INSERT INTO cities (name, population, country, area) VALUES ('Новосибирск', 1600000, 'Россия', 505)
+INSERT INTO cities (name, population, country, area) VALUES ('Екатеринбург', 1500000, 'Россия', 1112)
+INSERT INTO cities (name, population, country, area) VALUES ('Казань', 1250000, 'Россия', 425)
+INSERT INTO cities (name, population, country, area) VALUES ('Алматы', 2000000, 'Казахстан', 682)
+Добавлено записей: 6
+
+3. SELECT: все города
+SELECT * FROM cities
+(1, 'Москва', 13000000, 'Россия', 2561.0)
+(2, 'Санкт-Петербург', 5600000, 'Россия', 1439.0)
+(3, 'Новосибирск', 1600000, 'Россия', 505.0)
+(4, 'Екатеринбург', 1500000, 'Россия', 1112.0)
+(5, 'Казань', 1250000, 'Россия', 425.0)
+(6, 'Алматы', 2000000, 'Казахстан', 682.0)
+
+4. WHERE: население больше 1500000
+SELECT * FROM cities WHERE population > 1500000
+(1, 'Москва', 13000000, 'Россия', 2561.0)
+(2, 'Санкт-Петербург', 5600000, 'Россия', 1439.0)
+(3, 'Новосибирск', 1600000, 'Россия', 505.0)
+(6, 'Алматы', 2000000, 'Казахстан', 682.0)
+
+5. UPDATE: население Москвы
+UPDATE cities SET population = 13500000 WHERE id = 1
+Обновлено записей: 1
+SELECT * FROM cities WHERE id = 1
+(1, 'Москва', 13500000, 'Россия', 2561.0)
+
+6. DELETE: удаление Алматы
+DELETE FROM cities WHERE id = 6
+Удалено записей: 1
+SELECT * FROM cities
+(1, 'Москва', 13500000, 'Россия', 2561.0)
+(2, 'Санкт-Петербург', 5600000, 'Россия', 1439.0)
+(3, 'Новосибирск', 1600000, 'Россия', 505.0)
+(4, 'Екатеринбург', 1500000, 'Россия', 1112.0)
+(5, 'Казань', 1250000, 'Россия', 425.0)
+COMMIT
+Изменения сохранены в example.db
